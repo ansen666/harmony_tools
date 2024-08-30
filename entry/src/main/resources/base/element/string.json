@@ -1,0 +1,48 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "label"
+    },
+    {
+      "name": "simple_user_policy",
+      "value": "用户协议和隐私政策说明"
+    },
+    {
+      "name": "privacy_policy_start",
+      "value": "请您充分阅读并理解"
+    },
+    {
+      "name": "user_agreement_two",
+      "value": "《用户协议》"
+    },
+    {
+      "name": "and",
+      "value": "和"
+    },
+    {
+      "name": "privacy_policy_two",
+      "value": "《隐私政策》"
+    },
+    {
+      "name": "simple_privacy_policy",
+      "value": "\n我们非常重视您的隐私和个人信息保护。在您使用的过程中，我们会对您的部分个人信息进行收集和使用。\n1.我们会申请您的设备信息、位置权限、软件安装列表、日志信息等用于平台安全风控及查看附近的用户。\n2.在您使用上传、分享、语音等服务时，我们需要获取您设备的摄像头、麦克风、相册、地理位置、存储空间等以上敏感权限均不会默认或强制开启收集信息。\n3.友盟SDK会收集设备Mac地址，设备序列号用于统计\n4.您使用一键登录登录时，会收集您的SIM卡信息\n5.未经您同意，我们不会出售或共享您的任何信息。您可以查询，更正、删除您的个人信息，我们也提供账户注销、举报方式。"
+    },
+    {
+      "name": "disagree_privacy_policy",
+      "value": "不同意"
+    },
+    {
+      "name": "agree_privacy_policy",
+      "value": "同意"
+    }
+  ]
+}

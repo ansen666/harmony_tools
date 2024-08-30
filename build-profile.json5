@@ -1,0 +1,49 @@
+{
+  "app": {
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "/Users/anhui/.ohos/config/default_harmony_tools_NkJmhRuWgGo4daw7vk-KDY0bdS65MAQPkb0J0v91eMw=.cer",
+          "storePassword": "0000001B01CC4C4A47A75C3C17A3925AD86041EFF3A373FD7B7BDB350542C38355B0E819304BB765C71D61",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001B178C0706DBDBED2931DAF993F408A64B93DE5788D459CA603B3D2DC0262115DA4E473EF41D4AFF",
+          "profile": "/Users/anhui/.ohos/config/default_harmony_tools_NkJmhRuWgGo4daw7vk-KDY0bdS65MAQPkb0J0v91eMw=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "/Users/anhui/.ohos/config/default_harmony_tools_NkJmhRuWgGo4daw7vk-KDY0bdS65MAQPkb0J0v91eMw=.p12"
+        }
+      }
+    ],
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+        "compatibleSdkVersion": "5.0.0(12)",
+        "runtimeOS": "HarmonyOS",
+      }
+    ],
+    "buildModeSet": [
+      {
+        "name": "debug",
+      },
+      {
+        "name": "release"
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    }
+  ]
+}

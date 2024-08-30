@@ -60,6 +60,4 @@ export default struct PrivacyPolicyDialogBackUp{
             }
         }, router.RouterMode.Single)
     }
-
-
 }

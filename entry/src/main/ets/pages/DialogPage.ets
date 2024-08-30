@@ -5,7 +5,6 @@ import LoadingDialog from '../dialog/LoadingDialog';
 @Entry
 @Component
 struct DialogPage {
-
     //参考:https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V2/ts-methods-custom-dialog-box-0000001477981237-V2
     privacyPolicyDialog: CustomDialogController = new CustomDialogController({
       builder: PrivacyPolicyDialog({

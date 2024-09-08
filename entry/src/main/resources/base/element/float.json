@@ -1,0 +1,17 @@
+{
+  "float": [
+
+    {
+      "name": "border_width",
+      "value": "0.5vp"
+    },
+    {
+      "name": "tab_bar_item_height_sm",
+      "value": "50vp"
+    },
+    {
+      "name": "tab_bar_item_height_lg",
+      "value": "400vp"
+    }
+  ]
+}

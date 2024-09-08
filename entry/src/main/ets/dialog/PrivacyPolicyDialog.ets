@@ -1,9 +1,10 @@
-import { router } from '@kit.ArkUI'
+import { promptAction, router } from '@kit.ArkUI'
 import { AppConstant, Pages } from '../utils/AppConstant'
+import { AppUtil } from '../utils/AppUtil'
 import { logger } from '../utils/Logger'
 
 @CustomDialog
-export default struct PrivacyPolicyDialogBackUp{
+export default struct PrivacyPolicyDialog{
     controller: CustomDialogController
 
     cancel!: () => void
@@ -17,11 +18,11 @@ export default struct PrivacyPolicyDialogBackUp{
                 Text(){
                     Span($r('app.string.privacy_policy_start'))
                     Span($r('app.string.user_agreement_two')).fontColor($r('app.color.mainColor')).onClick(() => {
-                        this.openWebUrl("/useragreement.html");
+                        AppUtil.openWebUrl("/useragreement.html");
                     })
                     Span($r('app.string.and'))
                     Span($r('app.string.privacy_policy_two')).fontColor($r('app.color.mainColor')).onClick(() => {
-                        this.openWebUrl("/privacypolicy.html");
+                        AppUtil.openWebUrl("/privacypolicy.html");
                     })
                     Span($r('app.string.simple_privacy_policy'))
                 }.fontSize(16).fontColor($r('app.color.body_color')).margin({
@@ -49,15 +50,7 @@ export default struct PrivacyPolicyDialogBackUp{
         }
     }
 
-    openWebUrl(urlSuffix:string){
-        let url= AppConstant.URL+urlSuffix;
-        logger.info("url:"+url)
-        router.pushUrl({
-            url: Pages.WebViewPage,
-            params:{
-                data1: 'message',
-                url: url,  // 传递的 URL 参数
-            }
-        }, router.RouterMode.Single)
-    }
+
+
+
 }

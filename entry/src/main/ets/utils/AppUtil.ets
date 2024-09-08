@@ -1,11 +1,13 @@
 import { pasteboard } from '@kit.BasicServicesKit';
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
-import { promptAction } from '@kit.ArkUI';
+import { promptAction, router } from '@kit.ArkUI';
 import { systemShare } from '@kit.ShareKit';
 import { common, Want, wantConstant } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { uniformTypeDescriptor as utd } from '@kit.ArkData';
 import fileuri from '@ohos.file.fileuri';
+import { AppConstant, Pages } from './AppConstant';
+import { logger } from './Logger';
 
 export class AppUtil{
     static getString(component: Object,resource: ResourceStr){
@@ -98,5 +100,17 @@ export class AppUtil{
             .catch(() => {
                 // console.error(`Invoke startAbility failed, code is ${err.code}, message is ${err.message}`);
             });
+    }
+
+    static openWebUrl(urlSuffix:string){
+        let url= AppConstant.URL+urlSuffix;
+        logger.info("url:"+url)
+        router.pushUrl({
+            url: Pages.WebViewPage,
+            params:{
+                data1: 'message',
+                url: url,  // 传递的 URL 参数
+            }
+        }, router.RouterMode.Single)
     }
 }

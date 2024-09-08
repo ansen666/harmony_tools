@@ -43,6 +43,14 @@
     {
       "name": "agree_privacy_policy",
       "value": "同意"
+    },
+    {
+      "name": "home",
+      "value": "首页"
+    },
+    {
+      "name": "arkts_ui",
+      "value": "UI组件"
     }
   ]
 }

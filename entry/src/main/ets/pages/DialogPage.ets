@@ -1,6 +1,9 @@
 import PrivacyPolicyDialog from '../dialog/PrivacyPolicyDialog';
 import { AppUtil } from '../utils/AppUtil';
 import LoadingDialog from '../dialog/LoadingDialog';
+import { HdNav } from '../common/HdNav';
+import { GlobalDialog } from '../dialog/GlobalDialog';
+import PrivacyPolicyDialogTwo from '../dialog/PrivacyPolicyDialogTwo';
 
 @Entry
 @Component
@@ -23,22 +26,71 @@ struct DialogPage {
         autoCancel: true // 点击其他区域是否能取消
     });
 
+    @State isAgreePrivacyPolicy:boolean = false;
+
     build() {
-        Column({space:20}){
-            Button("警告弹窗").onClick(event=>{
-                this.showAlertDialog();
+        Column(){
+            HdNav({
+                title:"弹窗"
             })
 
-            Button("自定义弹窗").onClick(event=>{
-                this.privacyPolicyDialog.open();
-            })
+            RelativeContainer(){
+                Column({space:20}){
+                    Button("警告弹窗").onClick(event=>{
+                        this.showAlertDialog();
+                    })
 
-            Button("加载中弹窗").onClick(event=>{
-                this.loadingDialog.open();
-            })
+                    Button("自定义弹窗").onClick(event=>{
+                        this.privacyPolicyDialog.open();
+                    })
+
+                    Button("加载中弹窗").onClick(event=>{
+                        this.loadingDialog.open();
+                    })
+
+                    Button("全局弹窗，多组件复用").onClick(event=>{
+                        GlobalDialog.show(this.getUIContext(),{
+                            content:"您确定要删除这条记录吗？",
+                            onConfirm:()=>{
+                                GlobalDialog.close(this.getUIContext())
+                                AppUtil.showToast("确定按钮点击");
+                            },
+                            onCancel:()=>{
+                                GlobalDialog.close(this.getUIContext())
+                                AppUtil.showToast("取消按钮点击");
+                            },
+                            openWebUrl:(urlSuffix:string)=>{
+                                AppUtil.openWebUrl(urlSuffix)
+                            }
+                        })
+                    })
+
+                    //文章说明:https://mp.weixin.qq.com/s?__biz=MzIxODI4NzQ1Nw==&mid=2652474041&idx=1&sn=2d75e31dd16a6ac67abf4e7af4970c6a
+                    Button("模拟弹窗，点击隐私协议后，保证新页面不会被弹窗遮住").onClick(event=>{
+                        this.isAgreePrivacyPolicy = !this.isAgreePrivacyPolicy;
+                    })
+
+                }.justifyContent(FlexAlign.Center).margin({
+                    top:180
+                })
+
+                if (this.isAgreePrivacyPolicy){
+                    PrivacyPolicyDialogTwo({
+                        cancel:()=>{
+                            this.isAgreePrivacyPolicy=false
+                            AppUtil.showToast("拒绝隐私政策");
+                        },
+                        confirm:()=>{
+                            this.isAgreePrivacyPolicy=false
+                            AppUtil.showToast("同意隐私政策");
+                        },
+                    })
+                }
+            }
+
+
         }.height('100%')
         .width('100%')
-        .justifyContent(FlexAlign.Center)
     }
 
     //参考:https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V2/ts-methods-alert-dialog-box-0000001478341185-V2
@@ -77,4 +129,6 @@ struct DialogPage {
     onAgree():void {//同意隐私政策
         AppUtil.showToast("同意隐私政策");
     }
+
+
 }

@@ -1,18 +1,18 @@
 import { router } from '@kit.ArkUI'
 import { Pages } from '../utils/AppConstant'
 
-@Entry
 @Component
-struct Index {
-    aboutToAppear(): void {
-
-    }
-
+export struct HomePage {
     build() {
-        Column() {
+        Column({space:10}) {
             Button("弹窗").onClick(event=>{
                 router.pushUrl({url: Pages.DialogPage}, router.RouterMode.Single)
             })
+
+            Button("选择图片/视频").onClick(event=>{
+                router.pushUrl({url: Pages.SelectMediaPage}, router.RouterMode.Single)
+            })
+
         }
         .height('100%')
         .width('100%')

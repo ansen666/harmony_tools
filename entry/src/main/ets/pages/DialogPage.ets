@@ -52,15 +52,12 @@ struct DialogPage {
                         GlobalDialog.show(this.getUIContext(),{
                             content:"您确定要删除这条记录吗？",
                             onConfirm:()=>{
-                                GlobalDialog.close(this.getUIContext())
+                                GlobalDialog.close(this.getUIContext())//关闭弹窗
                                 AppUtil.showToast("确定按钮点击");
                             },
                             onCancel:()=>{
-                                GlobalDialog.close(this.getUIContext())
+                                GlobalDialog.close(this.getUIContext())//关闭弹窗
                                 AppUtil.showToast("取消按钮点击");
-                            },
-                            openWebUrl:(urlSuffix:string)=>{
-                                AppUtil.openWebUrl(urlSuffix)
                             }
                         })
                     })

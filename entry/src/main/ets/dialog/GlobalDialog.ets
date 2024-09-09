@@ -4,16 +4,24 @@ import { ComponentContent} from '@kit.ArkUI';
 export class GlobalDialog {
     static contentNode:ComponentContent<GlobalDialogParam>;
 
+    //显示弹窗
     static show(context: UIContext,dialogParam: GlobalDialogParam){
-        const contentNode = new ComponentContent(context, wrapBuilder(buildGlobalDialogComponent), dialogParam);
-        GlobalDialog.contentNode = contentNode;
-        const promptAction = context.getPromptAction()//获取context的promptAction
-        promptAction.openCustomDialog(contentNode,{
-            alignment: DialogAlignment.Center,
+        //ComponentContent对象有三个参数
+        //参数1:UI 上下文
+        //参数2：使用 wrapBuilder 包装 buildGlobalDialogComponent 函数，这个函数用于构建对话框的实际内容
+        //参数3:传递给对话框的参数，包含内容文本和按钮的回调函数
+        GlobalDialog.contentNode = new ComponentContent(context, wrapBuilder(buildGlobalDialogComponent), dialogParam);
+
+        const promptAction = context.getPromptAction()//通过 context 获取 promptAction，用于操作对话框显示
+
+        //显示弹窗
+        promptAction.openCustomDialog(GlobalDialog.contentNode,{
+            alignment: DialogAlignment.Center,//对话框在屏幕中央显示
             autoCancel: false,//点击弹窗外区域是否取消弹窗
         });
     }
 
+    //关闭弹窗
     static close(context: UIContext){
         const promptAction = context.getPromptAction()
         promptAction.closeCustomDialog(GlobalDialog.contentNode)
@@ -44,10 +52,9 @@ export class GlobalDialog {
 }
 
 interface GlobalDialogParam {
-    content:string;
-    onConfirm: () => void
-    onCancel: () => void
-    openWebUrl:(urlSuffix:string) => void
+    content:string;//弹窗显示内容
+    onConfirm: () => void //确认按钮的回调函数
+    onCancel: () => void // 取消按钮的回调函数
 }
 
 

@@ -3,6 +3,7 @@
     "pages/Main",
     "pages/DialogPage",
     "pages/WebViewPage",
-    "pages/SelectMediaPage"
+    "pages/SelectMediaPage",
+    "pages/CropAvatarPage"
   ]
 }

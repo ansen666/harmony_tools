@@ -13,6 +13,9 @@ export struct HomePage {
                 router.pushUrl({url: Pages.SelectMediaPage}, router.RouterMode.Single)
             })
 
+            Button("头像裁剪圆形遮罩").onClick(event=>{
+                router.pushUrl({url: Pages.CropAvatarPage}, router.RouterMode.Single)
+            })
         }
         .height('100%')
         .width('100%')

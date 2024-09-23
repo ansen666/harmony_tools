@@ -424,7 +424,6 @@ export class CropModel {
     }
 
     public async crop(format: image.PixelMapFormat) : Promise<image.PixelMap> {
-
         if(!this.src || this.src == '') {
             throw new Error('Please set src first');
         }

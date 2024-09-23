@@ -8,6 +8,7 @@ import { uniformTypeDescriptor as utd } from '@kit.ArkData';
 import fileuri from '@ohos.file.fileuri';
 import { AppConstant, Pages } from './AppConstant';
 import { logger } from './Logger';
+import { util } from '@kit.ArkTS';
 
 export class AppUtil{
     static getString(component: Object,resource: ResourceStr){
@@ -112,5 +113,11 @@ export class AppUtil{
                 url: url,  // 传递的 URL 参数
             }
         }, router.RouterMode.Single)
+    }
+
+    static getRawFileContent(component: Object,fileName:string){
+        let data=getContext(component).resourceManager.getRawFileContentSync(fileName);
+        let result = util.TextDecoder.create('utf-8', {}).decodeWithStream(data);
+        return result;
     }
 }

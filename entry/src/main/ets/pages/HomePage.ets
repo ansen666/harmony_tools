@@ -16,6 +16,14 @@ export struct HomePage {
             Button("头像裁剪圆形遮罩").onClick(event=>{
                 router.pushUrl({url: Pages.CropAvatarPage}, router.RouterMode.Single)
             })
+
+            Button("头像裁剪圆形遮罩").onClick(event=>{
+                router.pushUrl({url: Pages.CropAvatarPage}, router.RouterMode.Single)
+            })
+
+            Button("省市区三级联动").onClick(event=>{
+                router.pushUrl({url: Pages.SelectRegionPage}, router.RouterMode.Single)
+            })
         }
         .height('100%')
         .width('100%')

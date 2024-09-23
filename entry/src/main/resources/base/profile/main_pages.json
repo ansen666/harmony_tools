@@ -4,6 +4,7 @@
     "pages/DialogPage",
     "pages/WebViewPage",
     "pages/SelectMediaPage",
-    "pages/CropAvatarPage"
+    "pages/CropAvatarPage",
+    "pages/SelectRegionPage"
   ]
 }

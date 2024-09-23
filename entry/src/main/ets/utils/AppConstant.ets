@@ -9,4 +9,5 @@ export class Pages{
     static readonly WebViewPage="pages/WebViewPage";
     static readonly SelectMediaPage="pages/SelectMediaPage";
     static readonly CropAvatarPage="pages/CropAvatarPage";
+    static readonly SelectRegionPage="pages/SelectRegionPage";
 }

@@ -5,12 +5,12 @@ import { AppUtil } from '../utils/AppUtil';
 export default struct SelectRegionDialog {
     controller: CustomDialogController
 
-    map: Map<string, string[]> = new Map<string, string[]>();
+    map: Map<string, string[]> = new Map<string, string[]>();//省市数据
 
-    @State selectProvince:string=''
-    selectCity:string=''
+    @State selectProvince:string=''//选择的省份
+    selectCity:string=''//选中的城市
 
-    confirm!: (province:string,city:string) => void
+    confirm!: (province:string,city:string) => void //确定按钮点击回调
 
     aboutToAppear(): void {
         this.initData();
